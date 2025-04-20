@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+<head>
+  <title>Age Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 8px;
+      margin: 10px 0;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #007BFF;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Age Calculator</h2>
+
+    <input type="number" id="birthYear" placeholder="Enter Birth Year">
+    <input type="number" id="currentYear" placeholder="Enter Current Year">
+    
+    <button onclick="calculateAge()">Calculate Age</button>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function calculateAge() {
+      let birthYear = document.getElementById("birthYear").value;
+      let currentYear = document.getElementById("currentYear").value;
+
+      birthYear = Number(birthYear);
+      currentYear = Number(currentYear);
+
+      if (isNaN(birthYear) || isNaN(currentYear)) {
+        document.getElementById("result").innerText = "Please enter valid numbers.";
+      } else if (birthYear > currentYear) {
+        document.getElementById("result").innerText = "Birth year cannot be greater than current year.";
+      } else {
+        let age = currentYear - birthYear;
+        document.getElementById("result").innerText = "You are " + age + " years old.";
+      }
+    }
+  </script>
+
+</body>
+</html>
