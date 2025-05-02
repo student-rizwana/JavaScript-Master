@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Task: Object, Set, and Map</title>
+</head>
+<body>
+    <h2>Open the console to view the output.</h2>
+    <script>
+        // -------------------------
+        // Task 1: Objects
+        // -------------------------
+        const person1 = {
+            name: "Alice",
+            age: 28,
+            gender: "Female",
+            occupation: "Engineer"
+        };
+
+        const person2 = {
+            name: "Bob",
+            age: 32,
+            gender: "Male",
+            occupation: "Designer"
+        };
+
+        console.log("=== Object Task ===");
+        console.log("Person 1:", person1);
+        console.log("Person 2:", person2);
+
+        // -------------------------
+        // Task 2: Sets
+        // -------------------------
+
+        // a) Create unique set
+        function createUniqueSet(numbers) {
+            return new Set(numbers);
+        }
+
+        const numbersArray = [1, 2, 2, 3, 4, 4, 5];
+        const uniqueSet = createUniqueSet(numbersArray);
+        console.log("\n=== Set Task ===");
+        console.log("Unique Set:", uniqueSet);
+
+        // b) Set operations
+        function union(setA, setB) {
+            return new Set([...setA, ...setB]);
+        }
+
+        function intersection(setA, setB) {
+            return new Set([...setA].filter(x => setB.has(x)));
+        }
+
+        function difference(setA, setB) {
+            return new Set([...setA].filter(x => !setB.has(x)));
+        }
+
+        const set1 = new Set([1, 2, 3]);
+        const set2 = new Set([3, 4, 5]);
+
+        console.log("Union:", union(set1, set2));
+        console.log("Intersection:", intersection(set1, set2));
+        console.log("Difference:", difference(set1, set2));
+
+        // c) Subset check
+        function isSubset(subset, set) {
+            for (let elem of subset) {
+                if (!set.has(elem)) return false;
+            }
+            return true;
+        }
+
+        const smallSet = new Set([1, 2]);
+        const bigSet = new Set([1, 2, 3, 4]);
+
+        console.log("Is Subset (smallSet in bigSet):", isSubset(smallSet, bigSet)); // true
+
+        // -------------------------
+        // Task 3: Maps
+        // -------------------------
+        const myMap = new Map();
+
+        myMap.set("name", "Charlie");
+        myMap.set("age", 30);
+        myMap.set("city", "Bangalore");
+
+        console.log("\n=== Map Task ===");
+        console.log("Name:", myMap.get("name"));
+
+        // Update
+        myMap.set("city", "Mumbai");
+        console.log("Updated City:", myMap.get("city"));
+
+        // Delete a key
+        myMap.delete("age");
+        console.log("Map after deletion of 'age':", myMap);
+
+        // Iterate over map
+        myMap.forEach((value, key) => {
+            console.log(`${key} => ${value}`);
+        });
+    </script>
+</body>
+</html>
